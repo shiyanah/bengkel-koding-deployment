@@ -6,7 +6,6 @@ import numpy as np
 # Konfigurasi Halaman (Harus diletakkan paling atas)
 st.set_page_config(
     page_title="Prediksi Churn Pelanggan",
-    page_icon="🔮",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -35,21 +34,20 @@ except AttributeError:
 
 # --- SIDEBAR PENDUKUNG ---
 with st.sidebar:
-    st.image("https://cdn-icons-png.flaticon.com/512/3126/3126647.png", width=150)
-    st.title("ℹ️ Informasi")
+    st.title("Informasi")
     st.info("Aplikasi ini menggunakan **Machine Learning** untuk memprediksi apakah seorang pelanggan berpotensi untuk berhenti berlangganan (Churn) atau tetap setia.")
     st.markdown("---")
     st.markdown("**UAS Data Science**")
     st.markdown("Bengkel Koding - Universitas Dian Nuswantoro")
 
 # --- HEADER UTAMA ---
-st.markdown("<h1 style='text-align: center; color: #1f77b4;'>🔮 Dashboard Prediksi Churn Pelanggan</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #1f77b4;'>Dashboard Prediksi Churn Pelanggan</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: #808080;'>Masukkan data profil dan perilaku pelanggan di bawah ini untuk menganalisis tingkat risiko churn.</p>", unsafe_allow_html=True)
 st.markdown("---")
 
 # 2. Form Input Fitur
 with st.form("form_prediksi_churn"):
-    st.subheader("👤 Masukkan Profil Pelanggan")
+    st.subheader("Masukkan Profil Pelanggan")
     
     col1, col2 = st.columns(2)
     
@@ -65,8 +63,8 @@ with st.form("form_prediksi_churn"):
         satisfaction_score = st.slider("Skor Kepuasan (1-5)", min_value=1, max_value=5, value=4, help="Skor kepuasan pelanggan dari survei terakhir")
         last_3_month_purchase_freq = st.number_input("Frekuensi Pembelian 3 Bln Terakhir", min_value=0, value=7, help="Berapa kali pelanggan membeli produk dalam 3 bulan terakhir")
 
-    st.markdown("<br>", unsafe_allow_html=True) # Memberi sedikit jarak
-    submit_button = st.form_submit_button("🚀 Lakukan Prediksi", use_container_width=True)
+    st.markdown("<br>", unsafe_allow_html=True) 
+    submit_button = st.form_submit_button("Lakukan Prediksi", use_container_width=True)
 
 # 3. Proses Prediksi
 if submit_button:
